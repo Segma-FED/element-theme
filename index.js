@@ -21,11 +21,16 @@ exports.init = function (filePath) {
 };
 
 exports.watch = function (opts) {
-    gulp.task('build', build(opts));
-    exports.run(opts);
-    gulp.watch(opts.config || config.config, ['build']);
+    const buildFn = build(opts);
+    const fontsFn = fonts(opts);
+    gulp.task('build', buildFn);
+    gulp.task('fonts', fontsFn);
+    gulp.series('build', 'fonts')();
+    gulp.watch([opts.config || config.config], buildFn);
 };
 
 exports.run = function (opts) {
-    gulp.series(build(opts), fonts(opts))();
+    gulp.task('build', build(opts));
+    gulp.task('fonts', fonts(opts));
+    gulp.series('build', 'fonts')();
 };

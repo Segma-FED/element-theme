@@ -3,3 +3,5 @@ node_modules
 npm-debug*
 .idea
 .vscode
+theme
+element-variables.scss

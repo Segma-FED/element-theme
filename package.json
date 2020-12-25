@@ -1,6 +1,6 @@
 {
-    "name": "element-theme",
-    "version": "2.0.1",
+    "name": "@segma/element-theme",
+    "version": "2.0.2",
     "description": "Theme generator cli tool for Element",
     "bin": {
         "element-theme": "./bin/element-theme",
@@ -17,7 +17,7 @@
     },
     "scripts": {
         "init": "node ./bin/element-theme -i",
-        "test": "node ./bin/element-theme"
+        "test": "node ./bin/element-theme -m"
     },
     "repository": {
         "type": "git",
